@@ -1,0 +1,114 @@
+body {
+    background-color: #f5f8f9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.form-container {
+    background: grey;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #a9e5e0;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Red border for empty/error */
+.input-error {
+    border-color: red !important;
+}
+
+/* Green border when typing */
+.input-success {
+    border-color: green !important;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #59d3d0;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Purple hover effect for buttons */
+button:hover {
+    background-color: #5f2f5d;
+    /* dark purple */
+}
+
+p {
+    margin-top: 15px;
+    color: #555;
+}
+
+a {
+    color: #47b8b5;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Success page box */
+.success {
+    background-color: #59d3d0;
+    /* teal-ish */
+    color: white;
+    padding: 20px 30px;
+    border-radius: 10px;
+    width: 350px;
+    text-align: center;
+    margin: 50px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: Arial, sans-serif;
+}
+
+.success h1 {
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.success p {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+.success a {
+    color: white;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.success a:hover {
+    opacity: 0.8;
+}
+
+/* Success message box at top (signup/login) */
+.success-message {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 15px; 
+}

@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Successful</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+
+    <!-- Django messages -->
+    {% if messages %}
+        {% for message in messages %}
+            <div class="{% if message.tags == 'error' %}error-message{% else %}message{% endif %}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+    <div class="success">
+    <h1>CONGRATULATIONS!</h1>
+    <p>You have successfully signed into the Refactory system. Feel at home</p>
+    </div>
+</body>
+</html>

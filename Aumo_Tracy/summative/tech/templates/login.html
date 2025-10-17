@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+
+   
+   
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="email_or_phone" placeholder="Email or Phone" class="form-field">
+        <input type="password" name="password" placeholder="Password" class="form-field">
+        <button type="submit" class="btn">Login</button>
+        <p>Don’t have an account? <a href="{% url 'signup' %}">Signup</a></p>
+    </form>
+
+
+    
+<script>
+const form = document.querySelector("form");
+const inputs = document.querySelectorAll(".input-field");
+
+// On typing: green border
+inputs.forEach(input => {
+    input.addEventListener("input", () => {
+        if(input.value.trim() !== "") {
+            input.classList.remove("input-error");
+            input.classList.add("input-success");
+        } else {
+            input.classList.remove("input-success");
+        }
+    });
+});
+
+// On submit: red border for empty fields
+form.addEventListener("submit", (e) => {
+    let hasError = false;
+    inputs.forEach(input => {
+        if(input.value.trim() === "") {
+            input.classList.add("input-error");
+            input.classList.remove("input-success");
+            hasError = true;
+        }
+    });
+    if(hasError) {
+        e.preventDefault(); // stop submission if any field is empty
+        alert("Please fill in all fields."); // optional popup
+    }
+});
+</script>
+</body>
+</html>

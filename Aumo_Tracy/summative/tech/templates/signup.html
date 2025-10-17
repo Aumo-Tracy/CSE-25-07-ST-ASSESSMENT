@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <!-- Django messages -->
+{% if messages %}
+    {% for message in messages %}
+        <div class="{% if message.tags == 'error' %}error-message{% else %}success-message{% endif %}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+
+    <form method="POST">
+    {% csrf_token %}
+    <input type="text" name="name" placeholder="Name">
+    <input type="email" name="email" placeholder="Email">
+    <input type="text" name="phone" placeholder="Phone">
+    <input type="password" name="password" placeholder="Password">
+    <input type="password" name="confirm_password" placeholder="Confirm Password">
+    <button type="submit" class="btn">Sign Up</button>
+    <p>Don’t have an account? <a href="{% url 'login' %}">Login</a></p>
+</form>
+</body>
+<script>
+const form = document.querySelector("form");
+const inputs = document.querySelectorAll(".input-field");
+
+// On typing: green border
+inputs.forEach(input => {
+    input.addEventListener("input", () => {
+        if(input.value.trim() !== "") {
+            input.classList.remove("input-error");
+            input.classList.add("input-success");
+        } else {
+            input.classList.remove("input-success");
+        }
+    });
+});
+
+// On submit: red border for empty fields
+form.addEventListener("submit", (e) => {
+    let hasError = false;
+    inputs.forEach(input => {
+        if(input.value.trim() === "") {
+            input.classList.add("input-error");
+            input.classList.remove("input-success");
+            hasError = true;
+        }
+    });
+    if(hasError) {
+        e.preventDefault(); // stop submission if any field is empty
+        alert("Please fill in all fields."); // optional popup
+    }
+});
+</script>
+</body>
+</html>
